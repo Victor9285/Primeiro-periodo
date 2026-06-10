@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz & Pesquisa: Automação no Trabalho</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+    .container{width:100%;max-width:700px;background:white;border-radius:24px;box-shadow:0 25px 50px rgba(0,0,0,0.25);overflow:hidden}
+    .header{padding:32px 28px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;text-align:center}
+    .header h1{margin:0 0 8px 0;font-size:clamp(24px,5vw,32px);font-weight:700}
+    .header p{margin:0;color:rgba(255,255,255,0.9);font-size:16px}
+    .content{padding:32px 28px}
+    
+    /* Tela Inicial de Identificação */
+    .start-screen{text-align:center;padding:20px 0}
+    .start-screen h2{color:#1e293b;margin-bottom:12px}
+    .start-screen input{width:100%;max-width:300px;padding:14px 20px;border:2px solid #e2e8f0;border-radius:12px;font-size:16px;margin-bottom:12px;outline:none;transition:border-color 0.2s}
+    .start-screen input:focus{border-color:#3b82f6}
+    
+    /* Mensagem de validação da turma */
+    .validation-hint {font-size:13px;color:#64748b;margin-top:-8px;margin-bottom:16px}
+    .validation-hint.valid {color:#10b981}
+
+    .progress{width:100%;height:8px;background:#f1f5f9;border-radius:4px;margin-bottom:28px;overflow:hidden}
+    .progress-fill{height:100%;background:linear-gradient(90deg,#10b981,#34d399);border-radius:4px;transition:width 0.4s ease;width:0%}
+    .question{padding:28px 24px;background:#f8fafc;border-radius:20px;border:1px solid #e2e8f0;margin-bottom:20px}
+    .question-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+    .q-number{font-size:18px;font-weight:600;color:#1e293b}
+    .question-text{font-size:18px;line-height:1.6;color:#0f172a;margin-bottom:24px;font-weight:500}
+    .options{display:grid;gap:12px}
+    .option{padding:16px 20px;border:2px solid #e2e8f0;border-radius:16px;background:white;cursor:pointer;transition:all 0.2s;font-size:16px;font-weight:500;color:#475569}
+    .option:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,0.1)}
+    
+    .option.correct{border-color:#10b981;background:#ecfdf5;color:#065f46;font-weight:700}
+    .option.wrong{border-color:#ef4444;background:#fef2f2;color:#991b1b}
+    .option:disabled{cursor:not-allowed;transform:none!important;box-shadow:none!important}
+    
+    .explanation-box{margin-top:20px;padding:16px;background:#f0fdf4;border-left:4px solid #10b981;border-radius:4px 12px 12px 4px;color:#166534;font-size:15px;line-height:1.5}
+    .explanation-box.wrong-box{background:#fef2f2;border-left-color:#ef4444;color:#991b1b}
+
+    .buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+    .btn{padding:14px 28px;border:none;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;transition:all 0.2s;min-width:140px}
+    .btn-start{background:#3b82f6;color:white}
+    .btn-start:hover{background:#2563eb}
+    .btn-prev{background:#64748b;color:white}
+    .btn-prev:hover{background:#475569}
+    .btn-next{background:#3b82f6;color:white}
+    .btn-next:hover{background:#2563eb}
+    .btn-finish{background:#10b981;color:white}
+    .btn-finish:hover{background:#059669}
+    .btn-research{background:#f59e0b;color:white}
+    .btn-research:hover{background:#d97706}
+    .btn:disabled{opacity:0.5;cursor:not-allowed;transform:none!important}
+    
+    .result{text-align:center;padding:48px 32px}
+    .result h2{font-size:clamp(28px,6vw,42px);color:#1e293b;margin-bottom:16px}
+    .result-score{font-size:clamp(48px,12vw,96px);font-weight:800;background:linear-gradient(135deg,#10b981,#34d399);background-clip:text;-webkit-background-clip:text;color:transparent;margin:0 0 24px 0}
+    
+    /* Tabela de Pesquisa */
+    .research-area{padding:20px 0;max-height:400px;overflow-y:auto;text-align:left}
+    .research-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
+    .research-table th, .research-table td{padding:12px;border:1px solid #e2e8f0;text-align:left}
+    .research-table th{background:#f8fafc;color:#1e293b;font-weight:600}
+    
+    .team{margin-top:40px}
+    .team-title{font-size:18px;color:#64748b;font-weight:500;margin-bottom:20px}
+    .team-names{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+    .name-tag{padding:12px 20px;background:#ecfdf5;border:2px solid #10b981;border-radius:50px;color:#065f46;font-weight:600;font-size:16px}
+    .hidden{display:none!important}
+    @media(max-width:480px){.content{padding:24px 20px}.question{padding:24px 20px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🔄 Seja bem vindo</h1>
+      <p>Automação no Mercado de Trabalho<br><small>10 perguntas rápidas</small></p>
+    </div>
+
+    <div class="content">
+      <!-- TELA 1: Nome do Participante e Turma -->
+      <div id="start-screen" class="start-screen">
+        <h2>Seja bem-vindo(a)!</h2>
+        <p style="color:#64748b; margin-bottom:20px;">Insira seus dados para iniciar a pesquisa e o quiz.</p>
+        
+        <input type="text" id="username" placeholder="Digite seu nome completo..." autocomplete="off">
+        <br>
+        <input type="text" id="userclass" placeholder="Sua turma (Ex: 3INFO)..." autocomplete="off" maxlength="5">
+        <div id="class-hint" class="validation-hint">A turma precisa ter exatamente 5 caracteres.</div>
+
+        <div>
+          <button class="btn btn-start" id="btn-start" disabled>Começar Quiz</button>
+        </div>
+      </div>
+
+      <!-- TELA 2: O Quiz -->
+      <div id="quiz-area" class="hidden">
+        <div class="progress"><div class="progress-fill" id="progress"></div></div>
+        <div class="question" id="question-container">
+          <div class="question-header">
+            <div class="q-number" id="q-number">1 de 10</div>
+          </div>
+          <div class="question-text" id="question"></div>
+          <div class="options" id="options"></div>
+          <div id="explanation-container"></div>
+          <div class="buttons">
+            <button class="btn btn-prev" id="prev">◀ Anterior</button>
+            <button class="btn btn-next" id="next">Próxima ▶</button>
+            <button class="btn btn-finish hidden" id="finish">Finalizar Quiz</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TELA 3: Resultado Final e Painel de Pesquisa Global -->
+      <div id="result-area" class="result hidden">
+        <h2>Quiz Concluído!</h2>
+        <div class="result-score" id="final-score">0/10</div>
+        
+        <div class="buttons">
+          <button class="btn btn-research" id="btn-view-data">Ver Dados Nuvem Firebase 📊</button>
+        </div>
+
+        <div id="research-section" class="research-area hidden">
+          <h3>📋 Respostas na Nuvem (Todos os celulares conectados)</h3>
+          <table class="research-table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Turma</th>
+                <th>Pontuação</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <!-- Linhas via Firebase -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="team">
+          <div class="team-title">Desenvolvido por:</div>
+          <div class="team-names">
+            <div class="name-tag">Victor</div>
+            <div class="name-tag">Marcelo</div>
+            <div class="name-tag">Arthur</div>
+            <div class="name-tag">André</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONEXÃO COM O FIREBASE VIA SCRIPT (SDK) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, push, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    // Suas configurações do Firebase preenchidas e vinculadas ao banco de dados Realtime
+    const firebaseConfig = {
+      apiKey: "AIzaSyDghrNeIuJ491XqKPDMo_haexa-JqfU_Z0",
+      authDomain: "quiz-inovacao.firebaseapp.com",
+      databaseURL: "https://quiz-inovacao-default-rtdb.firebaseio.com/",
+      projectId: "quiz-inovacao",
+      storageBucket: "quiz-inovacao.firebasestorage.app",
+      messagingSenderId: "556074675014",
+      appId: "1:556074675014:web:f470b62e791e93baa09347"
+    };
+
+    // Inicializa o Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    const questions = [
+      {
+        q: "O que significa automação no trabalho?",
+        o: ["Substituição total de pessoas", "Uso de tecnologia para tarefas repetitivas", "Trabalho manual sem ferramentas", "Apenas robôs industriais"],
+        c: 1,
+        explicacao: "A resposta correta é o uso de tecnologia para processos repetitivos. A automação não elimina todas as pessoas (pois cria novas funções estratégicas e técnicas) e vai muito além da indústria robótica, englobando softwares em escritórios e inteligência artificial."
+      },
+      {
+        q: "Qual área é mais impactada pela automação?",
+        o: ["Tarefas criativas", "Tarefas repetitivas", "Profissões artísticas", "Esportes"],
+        c: 1,
+        explicacao: "Atividades previsíveis e com regras fixas (como digitação de dados ou linhas de montagem) são muito fáceis de programar. Áreas artísticas, criativas e esportivas exigem subjetividade e biologia humana, o que as protege desse impacto imediato."
+      },
+      {
+        q: "Principal benefício da automação?",
+        o: ["Mais erros", "Redução de eficiência", "Aumento de produtividade", "Fim de empregos"],
+        c: 2,
+        explicacao: "A automação elimina a fadiga humana em tarefas em massa, gerando um imenso salto na produção e na velocidade operacional. Erros diminuem e a eficiência sobe. O fim de empregos é um risco social/desafio, e não o benefício buscado pelas empresas."
+      },
+      {
+        q: "Exemplo clássico de automação?",
+        o: ["Caixa eletrônico", "Lápis e papel", "Caderno manual", "Relógio mecânico"],
+        c: 0,
+        explicacao: "O caixa eletrônico substituiu digitalmente etapas burocráticas que antes exigiam atendimento humano exclusivo no balcão de um banco. Lápis, cadernos e relógios analógicos dependem de operação 100% mecânica ou manual."
+      },
+      {
+        q: "A automação pode criar novos empregos?",
+        o: ["Nunca cria", "Sim, em tecnologia", "Só em profissões antigas", "Apenas agricultura"],
+        c: 1,
+        explicacao: "Embora elimine cargos antigos, ela abre um vasto mercado na criação, manutenção, programação e análise dos dados dessas tecnologias. Ela transforma a demanda por mão de obra em direção à inovação técnica."
+      },
+      {
+        q: "Habilidade mais importante com automação?",
+        o: ["Memorização", "Pensamento crítico", "Velocidade de digitação", "Evitar tecnologia"],
+        c: 1,
+        explicacao: "Computadores memorizam e digitam muito melhor que nós. O diferencial humano passa a ser o pensamento analítico, resolução de problemas complexos e a tomada de decisões éticas — competências que as máquinas não possuem por conta própria."
+      },
+      {
+        q: "Automação substitui melhor tarefas:",
+        o: ["Criativas", "Repetitivas e padronizadas", "Com empatia", "Com julgamento complexo"],
+        c: 1,
+        explicacao: "A padronização permite que um código de computador execute ações em loop infinito perfeitamente. Sentimentos humanos como empatia e o discernimento em cenários caóticos (julgamento complexo) são difíceis de simular por completo."
+      },
+      {
+        q: "Principal risco da automação?",
+        o: ["Eliminar atualização profissional", "Deslocamento de alguns empregos", "Aumento de tarefas repetitivas", "Menos eficiência"],
+        c: 1,
+        explicacao: "O principal desafio socioeconômico é o desemprego estrutural de curto prazo, onde profissionais de baixa qualificação perdem postos antes de conseguirem se recolocar no mercado. Ela reduz tarefas repetitivas e amplia a eficiência das empresas."
+      },
+      {
+        q: "Profissional importante na automação?",
+        o: ["Técnico de manutenção", "Poeta", "Pintor", "Jornalista"],
+        c: 0,
+        explicacao: "Sistemas automatizados e robôs quebram e precisam de updates constantes. O técnico engenheiro focado em manutenção de hardware e software torna-se um pilar vital para que as operações não parem."
+      },
+      {
+        q: "Melhor postura diante da automação?",
+        o: ["Ignorar mudanças", "Aprender e se adaptar", "Parar de estudar", "Evitar tecnologia"],
+        c: 1,
+        explicacao: "Lutar contra o avanço tecnológico é ineficaz a longo prazo. A postura mais inteligente para garantir relevância no mercado de trabalho é o aprendizado contínuo, desenvolvendo flexibilidade e familiaridade com novas ferramentas."
+      }
+    ];
+
+    let current=0,score=0,answers=new Array(10).fill(null), participantName = "", participantClass = "";
+
+    const els={
+      startScreen: document.getElementById('start-screen'),
+      usernameInput: document.getElementById('username'),
+      userclassInput: document.getElementById('userclass'),
+      classHint: document.getElementById('class-hint'),
+      btnStart: document.getElementById('btn-start'),
+      quiz:document.getElementById('quiz-area'),
+      result:document.getElementById('result-area'),
+      question:document.getElementById('question'),
+      options:document.getElementById('options'),
+      number:document.getElementById('q-number'),
+      progress:document.getElementById('progress'),
+      prev:document.getElementById('prev'),
+      next:document.getElementById('next'),
+      finish:document.getElementById('finish'),
+      finalScore:document.getElementById('final-score'),
+      explanation:document.getElementById('explanation-container'),
+      btnViewData: document.getElementById('btn-view-data'),
+      researchSection: document.getElementById('research-section'),
+      tableBody: document.getElementById('table-body')
+    };
+
+    function validateInputs() {
+      const name = els.usernameInput.value.trim();
+      const className = els.userclassInput.value.trim();
+      const currentLength = className.length;
+      
+      els.classHint.textContent = `Caracteres digitados: ${currentLength} de 5.`;
+
+      if(currentLength === 5) {
+        els.classHint.classList.add('valid');
+        els.classHint.style.color = "#10b981";
+      } else {
+        els.classHint.classList.remove('valid');
+        els.classHint.style.color = "#64748b";
+      }
+
+      els.btnStart.disabled = !(name !== "" && currentLength === 5);
+    }
+
+    els.usernameInput.oninput = validateInputs;
+    els.userclassInput.oninput = validateInputs;
+
+    els.btnStart.onclick = () => {
+      participantName = els.usernameInput.value.trim();
+      participantClass = els.userclassInput.value.trim();
+      els.startScreen.classList.add('hidden');
+      els.quiz.classList.remove('hidden');
+      render();
+    };
+
+    function updateScore(){
+      score=answers.filter((a,i)=>a===questions[i].c).length;
+    }
+
+    function render(){
+      const q=questions[current];
+      const hasAnswered = answers[current] !== null;
+      
+      els.number.textContent=`${current+1} de 10`;
+      els.question.textContent=q.q;
+      els.options.innerHTML='';
+      els.explanation.innerHTML='';
+      
+      q.o.forEach((opt,i)=>{
+        const btn=document.createElement('button');
+        btn.className='option';
+        btn.textContent=opt;
+        
+        if(hasAnswered){
+          btn.disabled = true;
+          if(i === q.c){
+            btn.classList.add('correct');
+          } else if(answers[current] === i){
+            btn.classList.add('wrong');
+          }
+        } else {
+          btn.onclick=()=>select(i);
+        }
+        
+        els.options.appendChild(btn);
+      });
+      
+      if(hasAnswered){
+        const isCorrect = answers[current] === q.c;
+        const box = document.createElement('div');
+        box.className = 'explanation-box' + (isCorrect ? '' : ' wrong-box');
+        box.innerHTML = `<strong>${isCorrect ? '✓ Acertou!' : '✗ Errou!'}</strong><br>${q.explicacao}`;
+        els.explanation.appendChild(box);
+      }
+
+      els.progress.style.width=`${(current+1)/10*100}%`;
+      els.prev.disabled=current===0;
+      
+      els.next.classList.toggle('hidden', current===9);
+      els.next.disabled = !hasAnswered; 
+      
+      els.finish.classList.toggle('hidden', current!==9);
+      els.finish.disabled = !hasAnswered;
+    }
+
+    function select(i){
+      answers[current]=i;
+      render();
+    }
+
+    function saveToFirebase() {
+      const answersRef = ref(database, 'pesquisa_automacao');
+      push(answersRef, {
+        nome: participantName,
+        turma: participantClass,
+        pontuacao: `${score}/10`
+      });
+    }
+
+    function loadFirebaseTable() {
+      const answersRef = ref(database, 'pesquisa_automacao');
+      get(answersRef).then((snapshot) => {
+        els.tableBody.innerHTML = "";
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          Object.values(data).forEach(entry => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td><strong>${entry.nome}</strong></td>
+              <td>${entry.turma}</td>
+              <td>${entry.pontuacao}</td>
+            `;
+            els.tableBody.appendChild(row);
+          });
+        } else {
+          els.tableBody.innerHTML = "<tr><td colspan='3'>Nenhum registro encontrado na nuvem.</td></tr>";
+        }
+      }).catch((error) => {
+        console.error(error);
+        els.tableBody.innerHTML = "<tr><td colspan='3'>Erro ao carregar os dados.</td></tr>";
+      });
+    }
+
+    els.prev.onclick=()=>current>0&&(current--,render());
+    els.next.onclick=()=>current<9&&(current++,render());
+    
+    els.finish.onclick=()=>{
+      updateScore();
+      saveToFirebase();
+      els.quiz.classList.add('hidden');
+      els.result.classList.remove('hidden');
+      els.finalScore.textContent=`${score}/10`;
+    };
+
+    els.btnViewData.onclick = () => {
+      loadFirebaseTable();
+      els.researchSection.classList.toggle('hidden');
+    };
+  </script>
+</body>
+</html>

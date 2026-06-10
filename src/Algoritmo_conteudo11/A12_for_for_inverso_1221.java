@@ -1,0 +1,26 @@
+package Algoritmo_conteudo11;
+
+import java.util.Scanner;
+
+public class A12_for_for_inverso_1221 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Fale um numero inteiro de 1 a 9");
+        int n = scanner.nextInt();
+        if (n > 9 || n < 1) {
+            System.out.println("Numero invalido.");
+            return;
+        }
+        for (int i = 1; i <= n; i++) {
+            System.out.println(i);
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j + " ");
+            }
+            for (int j = i; j >= i; j--) {
+                System.out.print(j + " ");
+            }
+           // System.out.println();
+
+        }
+    }
+}

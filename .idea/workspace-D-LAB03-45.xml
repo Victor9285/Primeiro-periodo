@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="17568fea-3b4d-46ca-979b-40403cadd1a2" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3C8RozxWPZa7bAJUoku8kVlOkx9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.A.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A10.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A11.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A12.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A13.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A14.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A3.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A4.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A5.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A7.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A8.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A9.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Algoritmo_conteudo10.E2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Algoritmo_conteudo6.E10.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Algoritmo_conteudo6.E11.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Algoritmo_conteudo6.E3.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Algoritmo_conteudo7.E2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Algoritmo_conteudo9.E12.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Algoritmo_conteudo9.E2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Atividade.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Atividade1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Atividade4.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Atividade4_2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Atividade6.executor&quot;: &quot;Run&quot;,
+    &quot;Application.B.executor&quot;: &quot;Run&quot;,
+    &quot;Application.C.executor&quot;: &quot;Run&quot;,
+    &quot;Application.D.executor&quot;: &quot;Run&quot;,
+    &quot;Application.D25938A.executor&quot;: &quot;Run&quot;,
+    &quot;Application.D25938A1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.D25938B.executor&quot;: &quot;Run&quot;,
+    &quot;Application.D25938B1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.D25938C.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Desafio.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E10.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E11.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E12 (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.E12.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E13.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E14.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E15.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E16.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E17.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E18.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E19.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E20.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E21.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E22.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E23.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E25.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E26.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E27.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E28.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E29.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E3.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E31.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E4.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E5.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E6.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E7.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E8.executor&quot;: &quot;Run&quot;,
+    &quot;Application.E9.executor&quot;: &quot;Run&quot;,
+    &quot;Application.F.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Media5Numeros.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MinhaJanela.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OrientadoObjeto.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SalarioBruto.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Teste.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UsandoOJLabel.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/victo/OneDrive - FUNDAÇÃO MOVIMENTO DIREITO E CIDADANIA/1- IDE/Intellij IDEA/Atividades&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/victo/OneDrive - FUNDAÇÃO MOVIMENTO DIREITO E CIDADANIA/1- IDE/Intellij IDEA/Atividades/src/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion.popup&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\victo\OneDrive - FUNDAÇÃO MOVIMENTO DIREITO E CIDADANIA\1- IDE\Intellij IDEA\Atividades\src" />
+      <recent name="C:\Users\victo\OneDrive - FUNDAÇÃO MOVIMENTO DIREITO E CIDADANIA\1- IDE\Intellij IDEA\Atividades\src\Atividade_for" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Algoritmo_conteudo6.E11">
+    <configuration name="Algoritmo_conteudo6.E11" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algoritmo_conteudo6.E11" />
+      <module name="Atividades" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Algoritmo_conteudo6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Atividade6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AtividadePY.Atividade6" />
+      <module name="Atividades" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AtividadePY.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E12" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algoritmo_conteudo6.E12" />
+      <module name="Atividades" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Algoritmo_conteudo6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E15" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algoritmo_conteudo6.E15" />
+      <module name="Atividades" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Algoritmo_conteudo6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="E2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algoritmo_conteudo6.E2" />
+      <module name="Atividades" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Algoritmo_conteudo6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Algoritmo_conteudo6.E11" />
+        <item itemvalue="Application.Atividade6" />
+        <item itemvalue="Application.E2" />
+        <item itemvalue="Application.E15" />
+        <item itemvalue="Application.E12" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17568fea-3b4d-46ca-979b-40403cadd1a2" name="Changes" comment="" />
+      <created>1775765390198</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775765390198</updated>
+      <workItem from="1775765391231" duration="2469000" />
+      <workItem from="1775846745324" duration="7636000" />
+      <workItem from="1775913804158" duration="10919000" />
+      <workItem from="1775962863012" duration="2513000" />
+      <workItem from="1775996633635" duration="9316000" />
+      <workItem from="1776005968722" duration="20701000" />
+      <workItem from="1776195237313" duration="1004000" />
+      <workItem from="1776196272374" duration="1857000" />
+      <workItem from="1776291834511" duration="1298000" />
+      <workItem from="1776302357054" duration="5402000" />
+      <workItem from="1776450551745" duration="5275000" />
+      <workItem from="1776523620261" duration="240000" />
+      <workItem from="1776532130764" duration="2332000" />
+      <workItem from="1776542342121" duration="4493000" />
+      <workItem from="1776637110726" duration="1523000" />
+      <workItem from="1776644529128" duration="2078000" />
+      <workItem from="1776717349066" duration="3275000" />
+      <workItem from="1776775667497" duration="6886000" />
+      <workItem from="1776897340835" duration="2467000" />
+      <workItem from="1777074366861" duration="3045000" />
+      <workItem from="1777161192982" duration="1193000" />
+      <workItem from="1777161999613" duration="868000" />
+      <workItem from="1777168444943" duration="1338000" />
+      <workItem from="1777169793017" duration="29000" />
+      <workItem from="1777169830145" duration="3529000" />
+      <workItem from="1777173511290" duration="744000" />
+      <workItem from="1777212340484" duration="3508000" />
+      <workItem from="1777230201910" duration="61000" />
+      <workItem from="1777414156051" duration="1354000" />
+      <workItem from="1777498836712" duration="3541000" />
+      <workItem from="1777645065093" duration="7051000" />
+      <workItem from="1777736831030" duration="6676000" />
+      <workItem from="1777773413832" duration="2574000" />
+      <workItem from="1777846984660" duration="176000" />
+      <workItem from="1777847798028" duration="17000" />
+      <workItem from="1777848640214" duration="1627000" />
+      <workItem from="1777923572514" duration="43000" />
+      <workItem from="1777923641861" duration="3493000" />
+      <workItem from="1777941519858" duration="2628000" />
+      <workItem from="1778019593990" duration="19000" />
+      <workItem from="1778019643008" duration="6000" />
+      <workItem from="1778415749596" duration="1796000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArithmeticException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
